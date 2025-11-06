@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHIJAH SAMUEL EROMOSELE</title>
+    <!-- External Styling -->
+
+    <!-- Load Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Load Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Load Animate.css for entrance animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Custom CSS for theme, colors, and animations -->
+</head>
+
+<body>
+
+<style>
+    /* --- Color Variables --- */
+:root {
+    --bs-primary: #00bcd4; /* Vibrant Cyan Accent */
+    --bs-primary-rgb: 0, 188, 212;
+    --bs-dark: #1a202c; /* Deep Slate Background */
+    --bs-body-bg: var(--bs-dark);
+    --bs-body-color: #e2e8f0; /* Light Text */
+    --bs-card-bg: #2d3748; /* Slightly Lighter Dark Card */
+}
+
+/* --- Base Styles --- */
+body {
+    background-color: var(--bs-dark);
+    color: var(--bs-body-color);
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Override standard Bootstrap primary color */
+.btn-primary, .bg-primary, .text-primary {
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-text-opacity: 1;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    --bs-btn-bg: #0097a7;
+    --bs-btn-border-color: #0097a7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(var(--bs-primary-rgb), 0.5);
+}
+
+/* --- Navbar Styles --- */
+.navbar-custom {
+    background-color: rgba(26, 32, 44, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.nav-link {
+    transition: color 0.3s ease;
+}
+.nav-link:hover {
+    color: var(--bs-primary)
+}
+
+/* --- Section Header Styles --- */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 70px;
+    height: 5px;
+    background-color: var(--bs-primary);
+    border-radius: 9999px;
+}
+
+/* --- Card and Component Styles --- */
+.card {
+    background-color: var(--bs-card-bg);
+    border: 1px solid rgba(var(--bs-primary-rgb), 0.2);
+    border-radius: 1rem;
+}
+.card-project {
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+.card-project:hover {
+    transform: scale(1.02);
+    box-shadow: 0 1rem 3rem rgba(var(--bs-primary-rgb), 0.3);
+}
+
+/* --- Hero Specific --- */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at 10% 20%, var(--bs-dark) 0%, #0d121c 90%);
+}
+
+/* --- Animation Control (Initially hidden, revealed by JS) --- */
+.animate-on-scroll {
+    visibility: hidden;
+}
+.animated.animate-on-scroll {
+    visibility: visible;
+}
+
+/* Scroll-to-Top Button Style */
+#scroll-to-top {
+    transition: opacity 0.3s ease;
+    opacity: 0; /* Hidden by default */
+}
+#scroll-to-top.show {
+    opacity: 1;
+}
+
+</style>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom py-3">
+        <div class="container">
+            <a class="navbar-brand fs-4 fw-bold" href="#hero">
+                EHIJAH <span class="text-primary">SAMUEL</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="hero" class="text-center">
+            <div class="container">
+                <!-- Using animate.css classes directly here for initial load -->
+                <h1 class="display-3 fw-bolder mb-3 text-white animate__animated animate__fadeInDown animate__delay-0s">
+                    Hello, I'm <span class="text-primary">EHIJAH SAMUEL</span>
+                </h1>
+                <p class="lead text-white-50 mb-5 animate__animated animate__fadeInDown animate__delay-1s">
+                    A Full-Stack Developer creating elegant, efficient, and responsive web solutions.
+                </p>
+                <div class="d-flex justify-content-center gap-3 animate__animated animate__fadeInUp animate__delay-2s">
+                    <a href="#projects" class="btn btn-primary btn-lg rounded-pill px-3 shadow-lg" role="button">
+                        View My Work
+                    </a>
+                    <a href="tel:+2348138563550" class="btn btn-outline-light btn-lg rounded-pill px-3" role="button">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Me Section -->
+        <section id="about" class="py-5 py-md-7">
+            <div class="container">
+                <div class="text-center animate-on-scroll">
+                    <h2 class="section-title text-center mx-auto">
+                        <i class="bi bi-person me-2 text-primary"></i>
+                        About Me
+                    </h2>
+                </div>
+                <div class="row align-items-center mt-5">
+                    <!-- Profile Image (Placeholder) -->
+                    <div class="col-lg-4 text-center mb-4 mb-lg-0 animate-on-scroll" data-animation="animate__fadeInLeft">
+                        <img class="img-fluid rounded-circle border border-primary border-4 shadow-lg"
+                             src="https://placehold.co/256x256/1a202c/00bcd4?text=ES"
+                             alt="Ehijah Samuel Profile Picture"
+                             onerror="this.onerror=null; this.src='https://placehold.co/256x256/1a202c/00bcd4?text=ES';">
+                    </div>
+                    <!-- Text Content -->
+                    <div class="col-lg-8 animate-on-scroll" data-animation="animate__fadeInRight">
+                        <p class="fs-5 text-white-75 mb-4 lh-base">
+                         I'm a passionate web developer specializing in creating custom websites that drive results for small and medium-sized businesses. I'll work with you to understand your goals and build a site that not only looks great but also helps you win clients, showcase your services, and sell your products effectively.
+                        </p>
+                        <p class="fs-5 text-white-75 mb-4 lh-base">
+                            Whether it's front-end development with HTML, CSS, and JavaScript or back-end work with Java and Spring Boot, I enjoy building scalable, responsive applications. I'm always looking for new challenges and opportunities to grow!
+                        </p>
+                        <div class="container">
+                            <div class="my-4">
+                                <h4 class="fw-bold">Html</h4>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                                </div>
+
+                                <h4 class="fw-bold">Css</h4>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%"></div>
+                                </div>
+
+                                <h4 class="fw-bold">JavaScript & Bootstrap</h4>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+                                </div>
+
+                                <div>
+                                <h4 class="fw-bold">Python</h4>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 70%"></div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#contact" class="btn btn-primary mt-2 rounded-pill" role="button">
+                            Hire Me
+                        </a>
+                        <a href="#" class="btn btn-outline-primary mt-2 rounded-pill" role="button">
+                            <i class="bi bi-download me-2"></i>
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 3. Skills Section -->
+        <section id="skills" class="py-5 py-md-7 bg-dark">
+            <div class="container">
+                <div class="text-center animate-on-scroll">
+                    <h2 class="section-title text-center mx-auto">
+                        <i class="bi bi-code-slash me-2 text-primary"></i>
+                        Core Skills
+                    </h2>
+                </div>
+
+                <div class="row mt-5 g-4">
+                    <!-- Frontend -->
+                    <div class="col-md-6 col-lg-4 animate-on-scroll" data-animation="animate__fadeInUp" data-delay="0.3s">
+                        <div class="card p-4 h-100 shadow-sm border-2">
+                            <h3 class="fs-4 fw-semibold text-primary mb-3"><i class="bi bi-display me-2"></i> Frontend</h3>
+                            <ul class="list-unstyled text-white-75 small">
+                                <li><i class="bi bi-check-lg text-primary me-2"></i> React</li>
+                                <li><i class="bi bi-check-lg text-primary me-2"></i> JavaScript </li>
+                                <li><i class="bi bi-check-lg text-primary me-2"></i> HTML5, CSS3, Bootstrap</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Backend -->
+                    <div class="col-md-6 col-lg-4 animate-on-scroll" data-animation="animate__fadeInUp" data-delay="0.6s">
+                        <div class="card p-4 h-100 shadow-sm border-2">
+                            <h3 class="fs-4 fw-semibold text-primary mb-3"><i class="bi bi-server me-2"></i> Backend & DB</h3>
+                            <ul class="list-unstyled text-white-75 small">
+                                <li><i class="bi bi-check-lg text-primary me-2"></i> Node.js</li>
+                                <li><i class="bi bi-check-lg text-primary me-2"></i> Python (Flask/Django)</li>
+                                <li><i class="bi bi-check-lg text-primary me-2"></i> MongoDB, MySQL</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- DevOps/Tools -->
+                    <div class="col-md-6 col-lg-4 animate-on-scroll" data-animation="animate__fadeInUp" data-delay="0.9s">
+                        <div class="card p-4 h-100 shadow-sm border-2">
+                            <h3 class="fs-4 fw-semibold text-primary mb-3"><i class="bi bi-tools me-2"></i> Tools & Cloud</h3>
+                            <ul class="list-unstyled text-white-75 small">
+                                <li><i class="bi bi-check-lg text-primary me-2"></i> Git, GitHub/GitLab</li>
+                                <li><i class="bi bi-check-lg text-primary me-2"></i> Docker</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 4. Projects Section -->
+        <section id="projects" class="py-5 py-md-7">
+            <div class="container">
+                <div class="text-center animate-on-scroll">
+                    <h2 class="section-title text-white mx-auto">
+                        <i class="bi bi-folder-fill me-2 text-primary"></i>
+                        Featured Projects
+                    </h2>
+                </div>
+
+                <div class="row mt-5 g-4">
+                    <!-- Project Card 1 -->
+                    <div class="col-md-6 col-lg-4 animate-on-scroll" data-animation="animate__zoomIn" data-delay="0.3s">
+                        <div class="card card-project border-0 rounded-4 shadow h-100">
+                            <div class="card-body p-4">
+                                <h4 class="card-title text-white fw-bold">GYM Website</h4>
+                                <p class="card-text text-white-50 small">To create a state-of-the-art fitness center that provides a welcoming, motivating, and inclusive environment for individuals of all fitness levels. The center will offer a wide range of services and facilities to help members achieve their health, wellness, and fitness goals.</p>
+                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                    <span class="badge rounded-pill bg-primary">HTML</span>
+                                    <span class="badge rounded-pill bg-secondary">css</span>
+                                    <span class="badge rounded-pill bg-info text-dark">JavaScript</span>
+                                </div>
+                                <a href="https://fitnesscenter121.netlify.app/" target="_parent" class="btn btn-sm btn-outline-primary rounded-pill">View Website</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                     <div class="col-md-6 col-lg-4 animate-on-scroll" data-animation="animate__zoomIn" data-delay="0.3s">
+                        <div class="card card-project border-0 rounded-4 shadow h-100">
+                            <div class="card-body p-4">
+                                <h4 class="card-title text-white fw-bold">Travel Better</h4>
+                                <p class="card-text text-white-50 small">To develop a technology platform that makes sustainable and ethical travel planning as easy and accessible as possible. The vision is to guide consumers toward "better" travel options that align with their values.</p>
+                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                    <span class="badge rounded-pill bg-primary">Bootstrap</span>
+                                    <span class="badge rounded-pill bg-secondary">CSS</span>
+                                </div>
+                                <a href="https://travelbetter121.netlify.app/" target="_parent" class="btn btn-sm btn-outline-primary rounded-pill">View Website</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                   <div class="col-md-6 col-lg-4 animate-on-scroll" data-animation="animate__zoomIn" data-delay="0.3s">
+                        <div class="card card-project border-0 rounded-4 shadow h-100">
+                            <div class="card-body p-4">
+                                <h4 class="card-title text-white fw-bold">Bakers BITZ</h4>
+                                <p class="card-text text-white-50 small">​This is a bakery and cafe that specializes in a wide variety of baked goods, including artisanal breads, pastries, gourmet cakes, and sweets.</p>
+                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                    <span class="badge rounded-pill bg-primary">Bootstrap</span>
+                                    <span class="badge rounded-pill bg-secondary">CSS</span>
+                                    <span class="badge rounded-pill bg-info text-dark">JavaScript</span>
+                                </div>
+                                <a href="https://bakerzbite12.netlify.app/" target="_parent" class="btn btn-sm btn-outline-primary rounded-pill">View Website</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 5. Contact Section -->
+        <section id="contact" class="py-5 py-md-7 bg-dark">
+            <div class="container">
+                <div class="text-center animate-on-scroll">
+                    <h2 class="section-title text-white mx-auto">
+                        <i class="bi bi-envelope me-2 text-primary"></i>
+                        Get In Touch
+                    </h2>
+                    <p class="fs-5 text-white-50 mb-5 animate-on-scroll" data-animation="animate__fadeInUp">
+                        Ready to start a project? Send me a message!
+                    </p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 animate-on-scroll" data-animation="animate__fadeInUp" data-delay="0.5s">
+                        <div class="card p-4 p-md-5 rounded-4 shadow-lg border-2">
+                           <form 
+                            action="https://formspree.io/f/xvgvedng"
+                            method="POST"
+                            >
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label text-white-50">Name</label>
+                                        <input type="text" class="form-control bg-secondary text-white border-0" id="name" name="name" required>
+                                        <div class="invalid-feedback">Please enter your name.</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label text-white-50">Email</label>
+                                        <input type="email" class="form-control bg-secondary text-white border-0" id="email" name="email" required>
+                                        <div class="invalid-feedback">Please enter a valid email.</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label text-white-50">Subject</label>
+                                    <input type="text" class="form-control bg-secondary text-white border-0" id="subject" name="subject" required>
+                                    <div class="invalid-feedback">Please enter a subject.</div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="message" class="form-label text-white-50">Message</label>
+                                    <textarea class="form-control bg-secondary text-white border-0" id="message" name="message" rows="4" required></textarea>
+                                    <div class="invalid-feedback">Please enter your message.</div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5 shadow-sm">
+                                        <i class="bi bi-send-fill me-2"></i>
+                                        Send Message
+                                    </button>
+                                </div>
+                                <!-- Success/Error Message Box -->
+                            <div id="form-message" class="mt-4 p-3 rounded-3 text-center d-none"></div>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-top border-secondary py-4">
+        <div class="container text-center text-white-50">
+            <p class="mb-1">&copy; 2025 EHIJAH SAMUEL. All rights reserved.</p>
+            <div class="d-flex justify-content-center gap-4 mt-3 fs-5">
+                <a href="#" target="_blank" class="text-white-50 text-decoration-none hover-primary"><i class="bi bi-github"></i></a>
+                <a href="#" target="_blank" class="text-white-50 text-decoration-none hover-primary"><i class="bi bi-linkedin"></i></a>
+                <a href="#" target="_blank" class="text-white-50 text-decoration-none hover-primary"><i class="bi bi-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top"
+            class="btn btn-primary btn-lg rounded-circle shadow fixed-bottom-end m-4"
+            style="position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 1000;"
+            aria-label="Scroll to top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Load Bootstrap 5 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript for Animations and Interactivity -->
+    <script>
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const animationClass = target.dataset.animation || 'animate__fadeIn';
+                    const delay = target.dataset.delay || '0s';
+
+                    target.style.setProperty('--animate-duration', '1s');
+                    target.style.setProperty('--animate-delay', delay);
+                    target.classList.add('animated', animationClass);
+                    target.classList.remove('animate-on-scroll'); // Remove trigger class
+                    observer.unobserve(target); // Stop observing once animated
+                }
+            });
+        }, {
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the element is visible
+        });
+
+        // Attach observer to all elements meant to be animated on scroll
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
+            observer.observe(element);
+        });
+
+
+        // --- 2. Smooth Scrolling for Navbar Links ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close the mobile menu after clicking a link
+                const navbarCollapse = document.getElementById('navbarNav');
+                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                    new bootstrap.Collapse(navbarCollapse).hide();
+                }
+            });
+        });
+
+
+        // --- 3. Scroll-to-Top Button Logic ---
+        const scrollTopButton = document.getElementById('scroll-to-top');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                scrollTopButton.classList.add('show');
+            } else {
+                scrollTopButton.classList.remove('show');
+            }
+        });
+
+        scrollTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+
+        // --- 4. Form Validation and Submission Handler ---
+        (function () {
+            'use strict';
+            const form = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                if (form.checkValidity()) {
+                    // Form is valid, simulate submission success
+                    formMessage.classList.remove('d-none');
+                    formMessage.classList.remove('bg-danger', 'text-white');
+                    formMessage.classList.add('bg-success', 'text-white');
+                    formMessage.innerHTML = 'Message sent successfully! I will get back to you soon.';
+
+                    // Reset the form and hide message after delay
+                    setTimeout(() => {
+                        form.reset();
+                        form.classList.remove('was-validated');
+                        setTimeout(() => {
+                            formMessage.classList.add('d-none');
+                        }, 4000);
+                    }, 1000);
+
+                } else {
+                    // Form is invalid, show error message
+                    formMessage.classList.remove('d-none');
+                    formMessage.classList.remove('bg-success', 'text-white');
+                    formMessage.classList.add('bg-danger', 'text-white');
+                    formMessage.innerHTML = 'Please fill out all required fields.';
+                }
+
+                form.classList.add('was-validated');
+            }, false);
+        })();
+    </script>
+    
+</body>
+</html>
